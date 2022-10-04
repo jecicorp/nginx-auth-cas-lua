@@ -161,5 +161,6 @@ end
 
 return {
    forceAuthentication = forceAuthentication;   
+   authentication = authentication;
    logout = logout;
 }
