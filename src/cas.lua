@@ -131,6 +131,10 @@ local function validate_with_CAS(ticket)
 end
 
 local function forceAuthentication()
+   return authentication(true)
+end
+
+local function authentication(force)
    init()
    local sessionId = _get_sessionId()
    if sessionId ~= nil then
@@ -140,7 +144,7 @@ local function forceAuthentication()
    local ticket = ngx.var.arg_ticket
    if ticket ~= nil then
       validate_with_CAS(ticket)
-   else
+   elseif force then
       first_access()
    end
 end
